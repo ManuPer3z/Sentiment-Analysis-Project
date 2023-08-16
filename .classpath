@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-20">
+		<attributes>
+			<attribute name="module" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/ejml-core-0.39.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/ejml-core-0.39-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/ejml-ddense-0.39.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/ejml-ddense-0.39-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/ejml-simple-0.39.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/ejml-simple-0.39-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/istack-commons-runtime-3.0.7.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/istack-commons-runtime-3.0.7-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/javax.activation-api-1.2.0.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/javax.activation-api-1.2.0-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/javax.json.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/javax.json-api-1.0-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/jaxb-api-2.4.0-b180830.0359.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/jaxb-api-2.4.0-b180830.0359-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/jaxb-impl-2.4.0-b180830.0438.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/jaxb-impl-2.4.0-b180830.0438-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/joda-time.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/joda-time-2.10.5-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/jollyday.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/jollyday-0.4.9-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/protobuf-java-3.19.6.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/slf4j-api.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/slf4j-simple.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/stanford-corenlp-4.5.4.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/stanford-corenlp-4.5.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/stanford-corenlp-4.5.4-models.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/stanford-corenlp-4.5.4-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/xom.jar"/>
+	<classpathentry kind="lib" path="D:/Descargas Google/stanford-corenlp-4.5.4/xom-1.3.8-sources.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
