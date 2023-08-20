@@ -2,70 +2,70 @@ package com.misentiment.gui;
 
 import javax.swing.*;
 import com.misentiment.analyzer.SentimentAnalysis;
+import twitter4j.*;
+import java.util.List;
+import java.util.ArrayList;
 
-/**
- * SentimentAnalysisGUI class provides a simple graphical interface for sentiment analysis.
- */
 public class SentimentAnalysisGUI extends JFrame {
-    // Components for the GUI
-    private JTextArea inputTextArea;
-    private JButton analyzeButton;
-    private JLabel resultLabel;
 
-    /**
-     * Constructor initializes the GUI components and layouts.
-     */
+    // Components for the GUI
+    private JTextField inputTextField;
+    private JButton analyzeButton;
+    private JTextArea resultTextArea;
+
     public SentimentAnalysisGUI() {
-        // Setting the title of the window
         setTitle("Sentiment Analysis");
-        
-        // Setting default size of the window
         setSize(400, 300);
-        
-        // Ensure application exits when the window is closed
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        // Set layout for components
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
-        // Initialize text area for user input
-        inputTextArea = new JTextArea(10, 30);
-        
-        // Initialize the analyze button
+        inputTextField = new JTextField(30);
         analyzeButton = new JButton("Analyze");
-        
-        // Initialize the label to display the analysis result
-        resultLabel = new JLabel("Sentiment: Neutral");
+        resultTextArea = new JTextArea(10, 30);
+        resultTextArea.setEditable(false);
 
-        // Add components to the frame
-        add(new JScrollPane(inputTextArea));
+        add(inputTextField);
         add(analyzeButton);
-        add(resultLabel);
+        add(new JScrollPane(resultTextArea));
 
-        // Set button's action to analyze the input text when clicked
-        analyzeButton.addActionListener(e -> analyzeText());
+        analyzeButton.addActionListener(e -> analyzeTweets());
 
-        // Display the window
         setVisible(true);
     }
 
-    /**
-     * Analyzes the text from the text area and updates the result label with the sentiment.
-     */
-    private void analyzeText() {
-        // Create an instance of the sentiment analyzer
+    private void analyzeTweets() {
         SentimentAnalysis analyzer = new SentimentAnalysis();
         
-        // Analyze the sentiment of the provided text
-        String sentiment = analyzer.analyze(inputTextArea.getText());
+        List<String> tweets = fetchTweets(inputTextField.getText());
         
-        // Update the result label with the analyzed sentiment
-        resultLabel.setText("Sentiment: " + sentiment);
+        StringBuilder results = new StringBuilder();
+
+        for (String tweet : tweets) {
+            String sentiment = analyzer.analyze(tweet);
+            results.append(tweet).append(" - Sentiment: ").append(sentiment).append("\n");
+        }
+
+        resultTextArea.setText(results.toString());
     }
 
-    /**
-     * Main method to launch the GUI.
-     */
+    private List<String> fetchTweets(String queryStr) {
+        List<String> tweetTexts = new ArrayList<>();
+        try {
+            Twitter twitter = new TwitterFactory().getInstance();
+            Query query = new Query(queryStr);
+            QueryResult result = twitter.search(query);
+            List<Status> tweets = result.getTweets();
+            
+            for (Status tweet : tweets) {
+                tweetTexts.add("@" + tweet.getUser().getScreenName() + ": " + tweet.getText());
+            }
+        } catch (TwitterException te) {
+            te.printStackTrace();
+            System.out.println("Failed to search tweets: " + te.getMessage());
+        }
+        return tweetTexts;
+    }
+
     public static void main(String[] args) {
         new SentimentAnalysisGUI();
     }

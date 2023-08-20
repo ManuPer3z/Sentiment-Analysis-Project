@@ -1,32 +1,94 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>SentimentAnalysisProject</groupId>
-  <artifactId>SentimentAnalysisProject</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <build>
-    <sourceDirectory>src</sourceDirectory>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <release>20</release>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-  <dependencies>
-    <!-- Stanford CoreNLP -->
-    <dependency>
-        <groupId>edu.stanford.nlp</groupId>
-        <artifactId>stanford-corenlp</artifactId>
-        <version>4.5.4</version>
-    </dependency>
-    <dependency>
-        <groupId>edu.stanford.nlp</groupId>
-        <artifactId>stanford-corenlp</artifactId>
-        <version>4.5.4</version>
-        <classifier>models</classifier>
-    </dependency>
-</dependencies>
+    <modelVersion>4.0.0</modelVersion>
+    
+    <groupId>SentimentAnalysisProject</groupId>
+    <artifactId>SentimentAnalysisProject</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    
+    <!-- Spring Boot Parent -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.4</version>
+    </parent>
+    
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+        <plugins>
+            <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>3.1.2</version>
+            <executions>
+                <execution>
+                    <id>remove-slf4j-simple</id>
+                    <goals>
+                        <goal>purge-local-repository</goal>
+                    </goals>
+                    <configuration>
+                        <excludes>
+                            <exclude>org.slf4j:slf4j-simple</exclude>
+                        </excludes>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+        </plugins>
+    </build>
+    
+    <dependencies>
+		<dependency>
+			    <groupId>edu.stanford.nlp</groupId>
+			    <artifactId>stanford-corenlp</artifactId>
+			    <version>4.5.4</version>
+			    <exclusions>
+			        <!-- Excluimos slf4j-simple para evitar conflictos con logback-classic -->
+			        <exclusion>
+			            <groupId>org.slf4j</groupId>
+			            <artifactId>slf4j-simple</artifactId>
+			        </exclusion>
+			    </exclusions>
+			</dependency>
+       
+        <!-- Twitter4J -->
+        <dependency>
+            <groupId>org.twitter4j</groupId>
+            <artifactId>twitter4j-core</artifactId>
+            <version>4.0.7</version>
+        </dependency>
+        
+		        <dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-api</artifactId>
+		    <version>1.7.30</version>
+		</dependency>
+		<dependency>
+		    <groupId>ch.qos.logback</groupId>
+		    <artifactId>logback-classic</artifactId>
+		    <version>1.2.5</version>
+		</dependency>
+
+        
+        <!-- Spring Boot Web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Optional: If you decide to include Stanford CoreNLP in the future, you can use the following dependency with the slf4j-simple exclusion -->
+        <!--
+        <dependency>
+            <groupId>edu.stanford.nlp</groupId>
+            <artifactId>stanford-corenlp</artifactId>
+            <version>4.5.4</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-simple</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        -->
+        
+    </dependencies>
 </project>

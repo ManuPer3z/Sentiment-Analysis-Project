@@ -1,0 +1,4 @@
+com\misentiment\twitter\TwitterSearch.class
+com\misentiment\controller\SentimentController.class
+com\misentiment\analyzer\SentimentAnalysis.class
+com\misentiment\gui\SentimentAnalysisGUI.class
